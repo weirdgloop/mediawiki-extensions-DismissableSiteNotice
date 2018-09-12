@@ -30,7 +30,7 @@ class DismissableSiteNoticeHooks {
 			$close = Html::rawElement( 'div', [ 'class' => 'mw-dismissable-notice-close' ],
 				$skin->msg( 'sitenotice_close-brackets' )
 					->rawParams(
-						Html::rawelement( 'a', [ 'href' => '#' ],
+						Html::rawelement( 'a', [ 'tabindex' => '0', 'role' => 'button' ],
 							Html::rawelement( 'span', [ 'class' => 'dismiss-icon'], $icon).
 							Html::element('span', [ 'class' => 'dismiss-text'], $skin->msg( 'sitenotice_close' )->text())
 						)

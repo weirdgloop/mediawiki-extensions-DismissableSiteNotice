@@ -31,14 +31,18 @@
 			$( '.mw-dismissable-notice-close' )
 				.css( 'visibility', 'visible' )
 				.find( 'a' )
-					.click( function ( e ) {
-						e.preventDefault();
+				.on( 'click keypress', function ( e ) {
+					if (
+						e.type === 'click' ||
+						e.type === 'keypress' && e.which === 13
+					) {
 						$( this ).closest( '.mw-dismissable-notice' ).hide();
 						$.cookie( typeCookie + type, 'hide', {
 							expires: 30,
 							path: '/'
 						} );
-					} );
+					}
+				} );
 		} );
 	} else {
 		// No type show notice and button
@@ -51,14 +55,18 @@
 			$( '.mw-dismissable-notice-close' )
 				.css( 'visibility', 'visible' )
 				.find( 'a' )
-					.click( function ( e ) {
-						e.preventDefault();
+				.on( 'click keypress', function ( e ) {
+					if (
+						e.type === 'click' ||
+						e.type === 'keypress' && e.which === 13
+					) {
 						$( this ).closest( '.mw-dismissable-notice' ).hide();
 						$.cookie( cookieName, siteNoticeId, {
 							expires: 30,
 							path: '/'
 						} );
-					} );
+					}
+				} );
 		} );
 	}
 
