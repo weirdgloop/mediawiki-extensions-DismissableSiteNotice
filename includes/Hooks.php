@@ -37,20 +37,32 @@ class Hooks {
 			$out->addModules( 'ext.dismissableSiteNotice' );
 			$out->addJsConfigVars( 'wgSiteNoticeId', "$major.$minor" );
 
-			$notice = Html::rawElement( 'div', [ 'class' => 'mw-dismissable-notice' ],
-				Html::rawElement( 'div', [ 'class' => 'mw-dismissable-notice-close' ],
-					$skin->msg( 'sitenotice_close-brackets' )
-						->rawParams(
-							Html::element(
-								'a',
-								[ 'tabindex' => '0', 'role' => 'button' ],
-								$skin->msg( 'sitenotice_close' )->text()
-							)
+			// Svg of x for icon
+			$icon = '<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>close</title><path d="M3.636 2.224l14.142 14.142-1.414 1.414L2.222 3.638z" /><path d="M17.776 3.636L3.634 17.778 2.22 16.364 16.362 2.222z"/></svg>';
+			$close = Html::rawElement( 'div', [ 'class' => 'mw-dismissable-notice-close' ],
+				$skin->msg( 'sitenotice_close-brackets' )
+					->rawParams(
+						Html::rawelement( 'a', [ 'tabindex' => '0', 'role' => 'button' ],
+							Html::rawelement( 'span', [ 'class' => 'dismiss-icon'], $icon).
+							Html::element('span', [ 'class' => 'dismiss-text'], $skin->msg( 'sitenotice_close' )->text())
 						)
-						->escaped()
-				) .
-				Html::rawElement( 'div', [ 'class' => 'mw-dismissable-notice-body' ], $notice )
+					)
+					->escaped()
 			);
+
+			if ( strstr($notice, '%CLOSE%') ) {
+				// Close position given
+				$notice = str_replace('%CLOSE%', $close, $notice);
+				$notice = Html::rawElement( 'div', [ 'class' => 'mw-dismissable-notice' ],
+					Html::rawElement( 'div', [ 'class' => 'mw-dismissable-notice-body' ], $notice )
+				);
+			} else {
+				// No close position given
+				$notice = Html::rawElement( 'div', [ 'class' => 'mw-dismissable-notice' ],
+					$close .
+					Html::rawElement( 'div', [ 'class' => 'mw-dismissable-notice-body' ], $notice )
+				);
+			}
 		}
 
 		if ( $skin->getUser()->isAnon() ) {
