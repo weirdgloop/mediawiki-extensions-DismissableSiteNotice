@@ -4,20 +4,54 @@
 
 .mw-dismissable-notice-close {
 	visibility: hidden;
+	position: absolute;
+	top: 0.5em;
+	width: 1.5em;
+	height: 1.5em;
+}
+
+.mw-dismissable-notice-close-parent {
+	position: relative;
+	min-height: 2.5em;
+}
+
+.mw-dismissable-notice-body {
+	margin: 0.5em 5em;
+}
+
+.mw-dismissable-notice-close span {
+	display: block;
+	position: relative;
+}
+
+.mw-dismissable-notice-close .dismiss-icon,
+.mw-dismissable-notice-close .dismiss-icon svg {
+	width: 100%;
+	height: 100%;
+}
+
+.mw-dismissable-notice-close .dismiss-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	overflow: hidden;
 }
 
 /* @noflip */ .sitedir-ltr .mw-dismissable-notice-close {
-	float: right;
+	right: 0.5em;
 }
 
 /* @noflip */ .sitedir-rtl .mw-dismissable-notice-close {
-	float: left;
+	left: 0.5em;
 }
 
-/* @noflip */ .sitedir-ltr .mw-dismissable-notice-body {
-	margin: 0.5em 20% 0.5em 5em;
+/* @noflip */ .sitedir-ltr .mw-dismissable-notice-close-parent {
+	padding-right: 2.5em;
 }
 
-/* @noflip */ .sitedir-rtl .mw-dismissable-notice-body {
-	margin: 0.5em 5em 0.5em 20%;
+/* @noflip */ .sitedir-rtl .mw-dismissable-notice-close-parent {
+	padding-left: 2.5em;
 }
