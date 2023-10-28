@@ -4,6 +4,6 @@
 	},
 	"sitenotice_id": "0",
 	"sitenotice_close": "dismiss",
-	"sitenotice_close-brackets": "[$1]",
+	"sitenotice_close-brackets": "$1",
 	"sitenotice-desc": "Allows users to close the sitenotice"
 }
