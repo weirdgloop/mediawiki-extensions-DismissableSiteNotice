@@ -19,7 +19,12 @@
 		}
 	},
 	"Hooks": {
-		"SiteNoticeAfter": "MediaWiki\\Extension\\DismissableSiteNotice\\Hooks::onSiteNoticeAfter"
+		"SiteNoticeAfter": "main"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Extension\\DismissableSiteNotice\\Hooks"
+		}
 	},
 	"MessagesDirs": {
 		"DismissableSiteNotice": [
@@ -30,7 +35,7 @@
 		"ext.dismissableSiteNotice": {
 			"scripts": "ext.dismissableSiteNotice.js",
 			"dependencies": [
-				"jquery.cookie",
+				"mediawiki.cookie",
 				"mediawiki.util"
 			],
 			"targets": [
@@ -55,6 +60,6 @@
 	},
 	"manifest_version": 2,
 	"requires": {
-		"MediaWiki": ">= 1.39.0"
+		"MediaWiki": ">= 1.41"
 	}
 }
