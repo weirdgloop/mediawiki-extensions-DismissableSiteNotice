@@ -2,11 +2,10 @@
 
 namespace MediaWiki\Extension\DismissableSiteNotice;
 
-use Html;
 use MediaWiki\Hook\SiteNoticeAfterHook;
+use MediaWiki\Html\Html;
 use MediaWiki\Parser\Sanitizer;
 use Skin;
-use Xml;
 
 class Hooks implements SiteNoticeAfterHook {
 
@@ -88,7 +87,7 @@ class Hooks implements SiteNoticeAfterHook {
 					// - Create temporary element or document fragment
 					// - Set innerHTML.
 					// - Replace node with wrapper's child nodes.
-					'node.outerHTML=' . Xml::encodeJsVar( $notice ) . ';' .
+					'node.outerHTML=' . Html::encodeJsVar( $notice ) . ';' .
 					'}' .
 					'}());',
 					$nonce
