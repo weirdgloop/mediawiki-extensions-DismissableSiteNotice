@@ -7,6 +7,6 @@
 		]
 	},
 	"sitenotice_close": "abaikan",
-	"sitenotice_close-brackets": "[$1]",
+	"sitenotice_close-brackets": "$1",
 	"sitenotice-desc": "Membolehkan pengguna menutup notis"
 }
