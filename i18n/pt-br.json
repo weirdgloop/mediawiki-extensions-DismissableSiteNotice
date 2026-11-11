@@ -9,6 +9,6 @@
 		]
 	},
 	"sitenotice_close": "ocultar",
-	"sitenotice_close-brackets": "[$1]",
+	"sitenotice_close-brackets": "$1",
 	"sitenotice-desc": "Permite que os usuários ocultem o banner de avisos"
 }
